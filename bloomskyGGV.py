@@ -12,6 +12,7 @@ def get_photo_url():
     data = client.get_data()[0] # Dictionary formatted like JSON, if you want data besides the latest image
     return data.get('outdoor').get('image_url')
 
+
 def generate_html(template_file_name, final_file_name):
     """
     uses an HTML template to generate page dynamically that will contain the updated photo on request
@@ -22,11 +23,11 @@ def generate_html(template_file_name, final_file_name):
     """
     root = os.path.dirname(os.path.abspath(__file__))
     template_dir = os.path.join(root, 'templates')
+    final_dir = os.path.join(root, 'html', final_file_name)
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template(template_file_name)
-    final_path = os.path.join(root, 'html', final_file_name)
 
-    with open(final_path, 'w') as fh:
+    with open(final_dir, 'w') as fh:
         fh.write(template.render(photo_url=get_photo_url()))
 
 
