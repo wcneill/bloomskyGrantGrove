@@ -5,11 +5,17 @@ A small script for pulling down the live camera feed from our new BloomSky cam a
 The relative path where you run the script should look like this: 
 
 .
+
 ├── bloomskyGGV.py (or whatever name you save my script as)
+
 ├── html
+
 │   └── final.html  (or whatever the page name is that will be finally displayed when the server sends a response)
+
 └── templates
+
     └── template.html (or whatever you want to call your template html)
+    
 
 ./templates/template.html should be a template version of the visitsequoia.com page where you want to display the feed. 
 
